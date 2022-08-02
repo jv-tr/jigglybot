@@ -3,12 +3,10 @@ const { token } = process.env
 const { Client, Collection, GatewayIntentBits } = require("discord.js")
 const fs = require("fs")
 
-// Event handler
 const client = new Client({ intents: GatewayIntentBits.Guilds })
 client.commands = new Collection()
 client.commandArray = []
 
-// fs, passing client as parameter to functions files.
 const functionFolders = fs.readdirSync("./src/functions")
 for (const folder of functionFolders) {
 	const functionFiles = fs
