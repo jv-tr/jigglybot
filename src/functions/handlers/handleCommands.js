@@ -22,17 +22,19 @@ module.exports = client => {
 		}
 
 		const clientId = "1003653164211392593"
-		const guildId = "1002340279405248665"
+		const guildId = "661967040315260958"
+
 		const rest = new REST({ version: "9" }).setToken(process.env.token)
 
 			try {
-				console.log("Refreshing (/) commands")
+				console.log("(/) commands are refreshing now...")
 
 				await rest.put(
 					Routes.applicationGuildCommands(clientId, guildId),
 					{ body: client.commandArray })
 
-				console.log("Sucessfully refreshed")
+				// TODO: Error check variable
+				console.log(`Client sucessfuly loaded with ${0} errors.`)
 			} catch (error) {
 				console.error(error)
 			}
